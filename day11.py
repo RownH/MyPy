@@ -35,26 +35,16 @@ def writFile():
         for fs in file_list:
             fs.close()
     print('操作完成')
-def main1():
-    filenames = ('a.txt', 'b.txt', 'c.txt')
-    fs_list = []
+def write2sy():
     try:
-        for filename in filenames:
-            fs_list.append(open(filename, 'w', encoding='utf-8'))
-        for number in range(1, 10000):
-             if number < 100:
-                fs_list[0].write(str(number) + '\n')
-             elif number < 1000:
-                fs_list[1].write(str(number) + '\n')
-             else:
-                fs_list[2].write(str(number) + '\n')
-    except IOError as ex:
-        print(ex)
-        print('写文件时发生错误!')
-    finally:
-        for fs in fs_list:
-            fs.close()
-    print('操作完成!')
-
+        with open('start.jpg','rb') as fs1:
+            date=fs1.read()
+            print(type(date))
+        with open('test1.jpg','wb') as fs2:
+            fs2.write(date)
+    except FileNotFoundError as e:
+        print('文件未找到')
+    except IOError as e:
+        print('读写错误')  
 if __name__=='__main__':
-    writFile()
+    write2sy()   
