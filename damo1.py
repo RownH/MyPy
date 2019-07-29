@@ -46,8 +46,12 @@ def Probability(n,m,k):
 
 if __name__=="__main__":
     m,n,k=0,0,0;
-    for _ in range(0,1000000):
-        result=Probability(1,2,3)
+    i=1;
+    j=int(input('请输入绿球个数?'));
+    s=int(input('请输入黄球个数?'));
+
+    for _ in range(0,10000):
+        result=Probability(i,j,s)
         if result=="red":
             m+=1;
         elif result=="green":
@@ -60,4 +64,4 @@ if __name__=="__main__":
     pa=m/acount;
     pb=n/acount;
     pc=k/acount;
-    print("red %0.2f green %0.2f yellow %0.2f"%(pa,pb,pc))             
+    print("red %0.3f  green %0.3f yellow %0.3f"%(pa,pb,pc))             
