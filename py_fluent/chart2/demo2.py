@@ -53,7 +53,7 @@ def example30():
     print(toky)
     print(toky.name) #直接访问
     print(toky[0])  #通过字段名或者位置访问
-    toky[0]='hello'
+    #toky[0]='hello' #不可变列表
     print(toky._asdict()) #实例方法
     print(City._fields)#返回类型名
     for key,value in toky._asdict().items(): #遍历元组的方法

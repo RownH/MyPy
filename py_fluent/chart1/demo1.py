@@ -23,6 +23,21 @@ m[key] 解释器实际调用m.__getitem__(key)
 1.1 magic and dunder
     魔术方法也称dunder 双下方法,是特殊方法的昵称
 
+
+1.2 如何使用特殊方法
+如果是内置类型  那么会直接读取PyVarObject里的ob_size属性  此处有点像C++中的size
+
+
+1.2.2字符串的表现形式
+__repr__这个特殊方法来得到一个对象的字符串表现形式
+如果未显示实现方法,那么会打印出 对象的内存地址
+
+** 
+    __repr__和__str__的区别在于: 
+        后者时在str()函数被使用,或是在print函数打印一个对象时候才会被嗲用,并且他返回的字符串对终端用户更友好
+
+    选择__repr__会更好,因为如果一个对象没有__str__函数,而需要调用时,就会用__repr__替代
+
 '''
 import collections
 from random import choice
