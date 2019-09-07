@@ -8,6 +8,9 @@
 
     2.91 当只需要一个包含数组的列表时 array.array比list更高效 数组支持可变序列的操作
     更支持从文件读取和存入更快的方法 .frombytes .tofile
+
+    2.92 内存视图
+    memoryview是一个内置类,能让用户在不服值内容的情况下操作同一个数组的不同切片
 '''
 
 from array import array

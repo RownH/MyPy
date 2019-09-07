@@ -21,9 +21,9 @@
 '''
 class StrKeyDict0(dict):
     def __missing__(self,key):
-        if isinstance(key,str):
-            raise KeyError(key)
-        return self[str(key)]
+        if isinstance(key,str):     #此测试是必须的 否则将无穷递归
+            raise KeyError(key) #第一次没找到 ,且类型为str时,则抛出异常
+        return self[str(key)]   #如果类型不为str,则转化为str后在进行get
     
     def get(self,key,default=None):
         try:

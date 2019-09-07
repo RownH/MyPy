@@ -25,6 +25,6 @@ def example391():
     print(d_proxy['1']);
     #d_proxy['2']='B'#不允许修改
     d['2']='B'
-    print(d_proxy)
+    print(d_proxy)  #可通过原数组修改
 example351()
 example391()
