@@ -22,5 +22,6 @@ def demo522():
 
 def demo523():
     print(reduce(add,range(100)))
-    print(sum(range(100)))
+    print(sum(range(100)))#使用工具 通用思想 是把某个连续应用到序列的元素上,累计之前的结果,把一系列值规约成一个值
+        
 demo523()

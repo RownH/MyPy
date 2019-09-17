@@ -18,4 +18,4 @@ fact=example51
 print(fact(5))
 print(example51.__doc__)
 print(type(example51))
-print(list(map(fact,range(10))))
+print(list(map(fact,range(10))))  #map函数返回一个可迭代对象.
