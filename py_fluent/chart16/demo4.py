@@ -11,8 +11,7 @@ def coroutine(func):
           next(gen)      #预激
           return gen     #返回生成器
      return primer;
-
-
+     
 @coroutine
 def averager():
      total=0.0;
@@ -23,9 +22,9 @@ def averager():
           total +=term;
           count +=1;
           average=total/count;
-coro_avg=averager();
+coro_avg=averager();     #创建一个生成器对象,在coroutine装饰器的primer函数中 预激了这个生成器
 from inspect import getgeneratorstate
-print(getgeneratorstate(coro_avg));
+print(getgeneratorstate(coro_avg));     #已经处于准备好状态 
 print(coro_avg.send(10));
 print(coro_avg.send(30))
 print(coro_avg.send(5))

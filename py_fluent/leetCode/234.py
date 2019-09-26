@@ -24,16 +24,15 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        slow=head;
-        if slow is None:
+        if head is None:
             return True;
-        quick=head.next;
-        if quick is None:
+        slow=head.next;
+        if head.next is None:
             return True;
+        quick=head.next.next;
         while quick is not None and quick.next is not None:
             quick=quick.next.next;
             slow=slow.next;
-
         pre=None;
         next=None;
         while head!=slow:
@@ -41,9 +40,7 @@ class Solution(object):
             head.next=pre;
             pre=head;
             head=next;
-        
-        print(head.val,pre.val)
-
+   
         if quick is not None:
             slow=slow.next;
         while pre is not None:
