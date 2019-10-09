@@ -72,7 +72,7 @@ void createLinkList(){
 	A9->next = NULL;
 	t1->next = A1;
 	t1 = t1->next;
-	t1->next = A3;
+	t1->next = A3; 	
 	t1 = t1->next;
 	t1->next = A5;
 	t1 = t1->next;

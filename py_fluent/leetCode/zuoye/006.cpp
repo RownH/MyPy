@@ -5,6 +5,9 @@
 #include<malloc.h>
 #include<stdlib.h>
 #include<string.h>
+#include<iostream>
+#include<sstream>
+using namespace std;
 //定义一个链栈  
 typedef struct node
 {

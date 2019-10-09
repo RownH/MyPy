@@ -3,8 +3,10 @@
     (要求利用原来两个链表的储存空间,不另外占用其他内存,表中不允许出现重复数据)
  */
 
-#include<iostream>
+#include<stdio.h>
 #include<malloc.h>
+#include<iostream>
+#include<sstream>
 using namespace std;
 typedef struct LNode{
 	int data;
@@ -58,58 +60,40 @@ void merge(LNode *A, LNode *B, LNode *&C){
 }
  
 void createLinkList(){
-	// headA与headB是用来调试的 
-	LNode *t1, *headA;
-	LNode *t2, *headB;
-	A = (LNode*)malloc(sizeof(LNode));
-	B = (LNode*)malloc(sizeof(LNode));
-	t1 = A;
-	headA = A;
-	t2 = B;
-	headB = B;
-	A->next = NULL;
-	B->next = NULL;
-	
-	LNode *A1 = (LNode*)malloc(sizeof(LNode));
-	A1->data = 1;
-	LNode *A3 = (LNode*)malloc(sizeof(LNode));
-	A3->data = 3;
-	LNode *A5 = (LNode*)malloc(sizeof(LNode));
-	A5->data = 5;
-	LNode *A7 = (LNode*)malloc(sizeof(LNode));
-	A7->data = 7;
-	LNode *A9 = (LNode*)malloc(sizeof(LNode));
-	A9->data = 9;
-	A9->next = NULL;
-	t1->next = A1;
-	t1 = t1->next;
-	t1->next = A3;
-	t1 = t1->next;
-	t1->next = A5;
-	t1 = t1->next;
-	t1->next = A7;
-	t1 = t1->next;
-	t1->next = A9;
-	t1 = t1->next;
-	
-	LNode *B2 = (LNode*)malloc(sizeof(LNode));
-	B2->data = 2;
-	LNode *B4 = (LNode*)malloc(sizeof(LNode));
-	B4->data = 3;
-	LNode *B6 = (LNode*)malloc(sizeof(LNode));
-	B6->data = 6;
-	LNode *B8 = (LNode*)malloc(sizeof(LNode));
-	B8->data = 7;
-	B8->next = NULL;
-	
-	t2->next = B2;
-	t2 = t2->next;
-	t2->next = B4;
-	t2 = t2->next;
-	t2->next = B6;
-	t2 = t2->next;
-	t2->next = B8;
-    
+    //初始化链表
+    LNode *t1, *headA;
+    LNode *t2, *headB;
+    A = (LNode*)malloc(sizeof(LNode));
+    B = (LNode*)malloc(sizeof(LNode));
+    t1 = A;
+    headA = A;
+    t2 = B;
+    headB = B;
+    A->next = NULL;
+    B->next = NULL;
+    int temp;
+    string line;
+    cout<<"请输入第一条链数据"<<endl;
+    getline(cin,line);
+    stringstream str(line);
+    while (str>>temp) {
+            LNode *tmp= (LNode*)malloc(sizeof(LNode));
+            tmp->next=NULL;
+            tmp->data=temp;
+            t1->next=tmp;
+            t1=t1->next;
+        }
+
+    cout<<"请输入第二条链数据"<<endl;
+    getline(cin,line);
+    stringstream str1(line);
+    while (str1>>temp) {
+            LNode *tmp= (LNode*)malloc(sizeof(LNode));
+            tmp->next=NULL;
+            tmp->data=temp;
+            t2->next=tmp;
+            t2=t2->next;
+        }
 }
 int main(void){
 	createLinkList();

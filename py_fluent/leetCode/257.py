@@ -30,11 +30,26 @@
 
 class Solution(object):
     def binaryTreePaths(self, root):
+          
         """
         :type root: TreeNode
         :rtype: List[str]
         """
-        List=[[]];
-        List.append([root.val]);
-        while TR:
+
+        paths=[]
+        def constructPath(root,path):
+              if root:          #如果存在根
+                    path+=str(root.val);  #添加致末尾
+                    if  not root.left and  not root.right:    
+                          paths.append(path); #如果为叶节点
+                    else:
+                        path+='->';   #如果存在叶节点
+                        constructPath(root.left,path);
+                        constructPath(root.right,path);
+        constructPath(root,'');
+        return paths;                
+                      
+
+        
+
             
