@@ -19,9 +19,11 @@ class Solution(object):
         :type num: int
         :rtype: int
         """
-        sum=0;
-        while num>10:
-            for _ in num:
-                sum+=_;
-            num=sum;
+        while num>9:
+            sum=0;
+            for _ in str(num):
+                sum+=int(_);
+            num=sum
         return num;
+c=Solution();
+print(c.addDigits(10));
