@@ -39,7 +39,7 @@ class Solution(object):
         lists={};
         for _ in range(0,len(strs)):
             if pattern[_] not in lists:
-                if strs[_] in list.value():
+                if strs[_] in lists.values():
                     return False
                 tmp={pattern[_]:strs[_]};
                 lists.update(tmp)
