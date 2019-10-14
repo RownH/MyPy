@@ -58,7 +58,12 @@ def load_db(db):
             key='{}.{}'.format(record_type,record['serial'])#构建key
             record['serial']=key
             db[key]=Record(**record)#构建数据库的key建下
-
+class Event(DbRecored):
+    @property 
+    def venue(self):
+        key='venve.{}'.format(self.venue_serial)
+        return self.__class__.fetch(key)
+        
 db=shelve.open(DB_NAME)
 if CONFERENCE not in db:
     load_db(db)
