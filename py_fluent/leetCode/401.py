@@ -25,6 +25,19 @@ class Solution(object):
         :type num: int
         :rtype: List[str]
         """
-        minute=[1,2,4,8,16,32,60,120,240,480]
-        method=[[]];
-        for _ in range(0,num):
+        list=[];
+        for i in range(0,12):
+            for j in range(0,60):
+                if self.count(i)+self.count(j)==num:
+                    s="{}:{:0>2d}".format(i,j);
+                    list.append(s);
+        return list;
+    def count(self,num):
+        res=0;
+        while num!=0:
+            num=num&(num-1)
+            res+=1;
+        return res;
+                
+a=Solution();
+print(a.readBinaryWatch(3))

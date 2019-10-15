@@ -30,9 +30,13 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
-        set1=set(nums1)
-        set2=set(nums2)
-        if len(set1)>len(set2):
-            return list(set1 and set2);
-        else:
-            return list(set2 and set1);
+        lists=[];
+        for _ in nums2:
+            if _ in nums1:
+                if _ in lists:
+                    pass
+                else:
+                    lists.append(_)
+            else:
+                pass
+        return lists;                
