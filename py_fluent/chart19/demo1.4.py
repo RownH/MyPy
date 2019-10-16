@@ -49,6 +49,7 @@ class DbRecored(Record):
             return '<{} serial={!r}>'.format(cls_name,self.serial)
         else:
             return super().__repr__();
+'''
 def load_db(db):
     raw_data=demo1.load();
     warnings.warn('loading' +DB_NAME)
@@ -58,12 +59,42 @@ def load_db(db):
             key='{}.{}'.format(record_type,record['serial'])#构建key
             record['serial']=key
             db[key]=Record(**record)#构建数据库的key建下
+'''
 class Event(DbRecored):
     @property 
     def venue(self):
         key='venve.{}'.format(self.venue_serial)
         return self.__class__.fetch(key)
         
+    @property
+    def speakers(self):
+        if not hasattr(self,'_speaker_objs'):
+            spkr_serials=self.__dict__['speakers']
+            fetch=self.__class__.fetch
+            self._speakers_objs=[fetch('speaker.{} '.format(key)) for key in spkr_serials]
+        return self._speakers_objs;
+
+    def __repr__(self):
+        if hasattr(self,'name'):
+            cls_name=self.__class__.__name__;
+            return '<{} {! r}>'.format(cls_name,self.name)
+        else:
+            return super().__repr__();
+def load_db(db):
+    raw_data=demo1.load();
+    warnings.warn('loading'+DB_NAME)
+    for collection,rec_list in raw_data['Schedule'].items():
+        record_type=collection[:-1];
+        cls_name=record_type.capitalize();# 将值的首地址变成大写
+        cls=globals().get(cls_name,DbRecored);#从全局作用于中找名称对应的对象,找不到,则是哦嗯DbRecord()
+        if inspect.isclass(cls) and issubclass(cls,DbRecored):#如果对象是类而且是DbRecored子类
+            factory=cls;    
+        else:
+            factory=DbRecored();
+        for record in rec_list:
+            key='{}.{} '.format(record_type,record['serial'])
+            record['serial']=key
+            db[key]=factory(**record);
 db=shelve.open(DB_NAME)
 if CONFERENCE not in db:
     load_db(db)
