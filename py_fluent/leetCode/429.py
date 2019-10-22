@@ -19,8 +19,17 @@
 '''
 class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
+        stack=[root];
         result=[];
-        son=[root.val];
-        gradson=[];
-        while True:
+        while stack:
+            data=[obj.val for obj in stack]
+            son=[];
+            for _ in stack:
+                for j in _.children:
+                    son.append(j);
+            stack=son;
+            result.append(data);
+        return result;
+
+
 
