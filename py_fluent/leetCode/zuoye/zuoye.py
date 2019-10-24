@@ -29,6 +29,37 @@
 
 （5）学生成绩查询功能中，用户输入学号或姓名均可查询到学生信息，如果有重复名字的同学都要输出
 '''
+import sqlite3
+DATABASE_NAME='hit.db'
+def creatDateBase():
+       conn = sqlite3.connect('{}'.format(DATABASE_NAME))
+       print("Opened database successfully");
+       c = conn.cursor()
+       c.execute('''CREATE TABLE if not exists student
+              (ID INT PRIMARY KEY     NOT NULL,
+              NAME           TEXT    NOT NULL,
+              CHINESE         INT     NOT NULL,
+              MATH        INT     NOT NULL,
+              ENGLISH     INT     NOT NULL,
+              COUNT     INT     NOT NULL);''')
+       print("Table created successfully");
+       conn.commit()
+def insetStudent(id, name, chinese, math, english, count):
+       try:
+              conn = sqlite3.connect('{}'.format(DATABASE_NAME))
+              c = conn.cursor()
+              c.execute("INSERT INTO student (ID,NAME,CHINESE,MATH,ENGLISH,COUNT) \
+              VALUES ({}, '{}', {}, {}, {},{} )".format(id, name, chinese, math, english, count));
+              conn.commit()
+       except sqlite3.IntegrityError:
+              print('已存在学号{}'.format(id));
+       else:
+              print('成功')
+       conn.close()
+def saveDatabase():
+    creatDateBase()
+    for _ in students:
+        insetStudent(_[0],_[1],_[2],_[3],_[4],_[5]);
 students=[]  ;#全局变量 存放学生信息
 def entryStudent():
     while True:
@@ -141,7 +172,8 @@ def main():
             for s in students:
                 print('学号{} 姓名{} 数学成绩{} 语文成绩{} 英语成绩{} 总分{}'.format(s[0],s[1],s[2],s[3],s[4],s[5]))
         elif n==5:
-            return;
+            saveDatabase()
+            exit();
         else:
             print('请选择以下选项')
             
