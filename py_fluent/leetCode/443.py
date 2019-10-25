@@ -61,10 +61,16 @@
 '''
 class Solution:
     def compress(self, chars) -> int:
-        left,end=0,0
+        left=0
         size=0;
         for i,j in enumerate(chars):
-            if i+1==len(chars) or chars[i+1]!=chars[left]:
+            if i+1==len(chars) or chars[i+1]!=j:
+                chars[size]=chars[left];
                 size+=1;
-                chars[size]=
+                if i>left:
+                    for _ in str(i-left+1):
+                        chars[size]=_;
+                        size+=1;
+                left=i+1;
         return size;
+                    
