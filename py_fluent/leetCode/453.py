@@ -26,4 +26,5 @@
 '''
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
-        
+        return sum(nums)-min(nums)*len(nums)
+#总和-最小值*长度
