@@ -1,22 +1,13 @@
-class Solution(object):
-    def isPowerOfFour(self, num):
-        """
-        :type num: int
-        :rtype: bool
-        """
-        if num<0:
-            return False
-        if num==1:
-            return True;
-        if num<4:
-            return False
-        if num==4:
-            return True
-        snum=str(bin(num))
-        index=len(snum)-snum.find('1')-2
-        snum[snum.find('1')]='0';
-        if int(snum]='0')==0:
-            if index%3==0:
-                return True
-        else:
-            return False;
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        length = len(grid)
+        width = len(grid[0])
+        prm = 0
+        for i in range(length):
+            for j in range(width):
+                if grid[i][j] == 1:
+                    if j == 0 or grid[i][j - 1] == 0:
+                        prm += 1
+                    if i == 0 or grid[i - 1][j] == 0:
+                        prm += 1
+        return prm * 2
