@@ -61,4 +61,26 @@ class Solution(object):
         :type R: int
         :rtype: TreeNode
         """
-        if root.val
+        
+class Solution(object):
+    def trimBST(self, root, L, R):
+        """
+        :type root: TreeNode
+        :type L: int
+        :type R: int
+        :rtype: TreeNode
+        """
+        
+        def DF(Node):
+            if not Node:
+                return None
+            elif Node.val>R:
+                return DF(Node.left)
+               
+            elif Node.val<L:
+                 return DF(Node.right)
+            else:
+                Node.left= DF(Node.left)
+                Node.right=DF(Node.right)
+                return Node
+        return DF(root)
