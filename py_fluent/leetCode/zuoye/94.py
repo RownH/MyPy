@@ -30,15 +30,12 @@ class Solution(object):
         """
         stack=[];
         rlist=[];
-        stack.append(root)
-        while stack:
-            node=stack[-1]
-            if node.left:
-                stack.append(node.left)
-                continue;
-            elif node.right:
-                stack.append(node.right)
-            else:
-                temp=stack.pop();
-                rlist.append(temp)
+        node=root;
+        while node or len(stack)!=0:
+            while node:
+                stack.append(root)
+                node=node.left;
+            node=stack.pop()
+            rlist.append(node);
+            node=node.right
         return rlist;
