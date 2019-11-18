@@ -39,3 +39,6 @@ class Solution(object):
             rlist.append(node);
             node=node.right
         return rlist;
+        10
+       5  15
+          6 20  
