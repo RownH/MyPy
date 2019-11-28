@@ -86,5 +86,4 @@ class Solution(object):
                     cur_depth = depth
                     left = pos
                 ans = max(pos - left + 1, ans)
-
         return ans
