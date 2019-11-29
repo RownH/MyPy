@@ -31,19 +31,46 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+#时间o(n)效率低
+# class Solution(object):
+#     def __init__(self):
+#         self.count=0;
+#     def countNodes(self, root):
+#         """
+#         :type root: TreeNode
+#         :rtype: int
+#         """
+#         if root is None:
+#             return ;
+#         else:
+#             self.count+=1;
+#             self.countNodes(root.left);
+#             self.countNodes(root.right);
+#         return self.count;
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#时间 o(logN);
 class Solution(object):
-    def __init__(self):
-        self.count=0;
     def countNodes(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
+        def dfs(node):
+            depth=0;
+            while  node:
+                depth+=1;
+                node=node.left;
+            return depth;
         if root is None:
-            return ;
+            return 0;
+        left=dfs(root.left);
+        right=dfs(root.right);
+        if left==right:
+            return self.countNodes(root.right)+(1<<left)
         else:
-            self.count+=1;
-            self.countNodes(root.left);
-            self.countNodes(root.right);
-        return self.count;
+            return self.countNodes(root.left)+(1<<right)
