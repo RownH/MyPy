@@ -31,7 +31,7 @@ class Solution(object):
     def allPossibleFBT(self, N):
         if N not in Solution.memo:
             ans = []
-            for x in xrange(N):
+            for x in range(1,N+2,2):
                 y = N - 1 - x
                 for left in self.allPossibleFBT(x):
                     for right in self.allPossibleFBT(y):
@@ -42,6 +42,7 @@ class Solution(object):
             Solution.memo[N] = ans
 
         return Solution.memo[N]
-
+a=Solution();
+a.allPossibleFBT(7);
 
 
