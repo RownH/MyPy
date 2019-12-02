@@ -95,17 +95,11 @@ def showSudoku(sudoku):
 
 
 if __name__ == '__main__':
-    sudoku = [
-        8, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 3, 6, 0, 0, 0, 0, 0,
-        0, 7, 0, 0, 9, 0, 2, 0, 0,
-        0, 5, 0, 0, 0, 7, 0, 0, 0,
-        0, 0, 0, 0, 4, 5, 7, 0, 0,
-        0, 0, 0, 1, 0, 0, 0, 3, 0,
-        0, 0, 1, 0, 0, 0, 0, 6, 8,
-        0, 0, 8, 5, 0, 0, 0, 1, 0,
-        0, 9, 0, 0, 0, 0, 4, 0, 0,
-    ]  # 数独列表
+    sudoku = []  # 数独列表
+    for _ in range(0,81):
+        temp=int(input());
+        sudoku.append(temp);
+
     pointList = initPoint(sudoku)   #初始化每个点  大概能放那些值
     showSudoku(sudoku)  #打印出当前数组的样子
     print('\n')
