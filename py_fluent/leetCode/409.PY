@@ -1,41 +1,39 @@
 '''
-给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+412. Fizz Buzz
 
-在构造过程中，请注意区分大小写。比如 "Aa" 不能当做一个回文字符串。
 
-注意:
-假设字符串的长度不会超过 1010。
 
-示例 1:
 
-输入:
-"abccccdd"
+题目描述
+评论 (123)
+题解(25)New
+提交记录
+写一个程序，输出从 1 到 n 数字的字符串表示。
 
-输出:
-7
+1. 如果 n 是3的倍数，输出“Fizz”；
 
-解释:
-我们可以构造的最长的回文串是"dccaccd", 它的长度是 7。
+2. 如果 n 是5的倍数，输出“Buzz”；
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/longest-palindrome
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
 '''
-import collections
 class Solution(object):
-    def longestPalindrome(self, s):
+    def fizzBuzz(self, n):
         """
-        :type s: str
-        :rtype: int
+        :type n: int
+        :rtype: List[str]
         """
-        count=0;
-        single=0;
-        for value in collections.Counter(s).values():
-            if value!=1:
-                count+=value;
-            else:
-                single+=1;
-        return count+(1 if single>0 else 0);
-        
+        lists=[];
+        for i in range(1,n+1):
+            lists.append(self.size(i))
+        return lists;
+    def size(self,n):
+        if n%3==0 and n%5==0:
+            return 'FizzBuzz';
+        elif n%3==0:
+            return 'Fizz';
+        elif n%5==0:
+            return 'Buzz';
+        else:
+            return str(n);
 s=Solution();
-print(s.longestPalindrome("dd"));
+print(s.fizzBuzz(2));
