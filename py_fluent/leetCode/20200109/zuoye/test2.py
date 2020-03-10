@@ -12,50 +12,53 @@ def Headers(UserAgent, Virtual_ip):
         'host': 'www.wjx.cn',
         'User-Agent': UserAgent,
         'Content-type': 'application/x-www-form-urlencoded; ',
-        'Referer': 'https://www.wjx.cn/jq/47758137.aspx',
-        'Cookie': "acw_tc=2f624a0815705357955708983e56364f861189916c7f1736edfecf82a59f3e; .ASPXANONYMOUS=Ms3ARWG01QEkAAAAM2E3ZjY0NjgtM2IwNC00OGJmLThmZTctOTg2YjYwMjFkZGY1lKkWQ9qbluiDrX6GW-PCxgOVKCY1; UM_distinctid=16dab3a6ddb40c-01c3cf6487d249-1a201708-1fa400-16dab3a6ddc59; spiderregkey=baidu.com%c2%a7%e7%9b%b4%e8%be%be%c2%a71; crudat=2019-10-17 09:15:37; ConnectQQ=1; jaward103311555081=1; SojumpABX_3935=1; jac47066661=41961107; CNZZDATA4478442=cnzz_eid%3D1671052246-1570533827-%26ntime%3D1571311562; ASP.NET_SessionId=jjrhiqpikikdlzr2n2k32ixc; LastActivityJoin=47066661,103310427323; join_47066661=1; SojumpSurvey=01025E6BC863F652D708FE5E0BDAEA1753D70800237100710024006600340037003700340064006400320063006500640036006300610034006400360065003300330038003300620065006200310037006400360063006600650000012F00FFF3A85B7A8E9D0255CB9A558345BFD62A7D0E92EC; LastCheckUpdateDate=1; Hm_lvt_21be24c80829bd7a683b2c536fcf520b=1571304168,1571312111,1571312237,1571312249; DeleteQCookie=1; _cnzz_CV4478442=%E7%94%A8%E6%88%B7%E7%89%88%E6%9C%AC%7C%E5%85%8D%E8%B4%B9%E7%89%88%7C1571312270423; Hm_lpvt_21be24c80829bd7a683b2c536fcf520b=1571313142; jpckey=%u5927%u5B66%u751F",
+        'Referer': 'https://www.wjx.cn/m/63359891.aspx',
+        'Cookie': "acw_tc=2f624a7115838432797021174e32b93dcaafa9d93ef3d6a56dccffb876a493; .ASPXANONYMOUS=Xu1oLGkt1gEkAAAAODgyOTdjNjQtY2Y2OS00NGZjLWEzMWQtYTFkN2NhMTM5ZGFl3VCUr3-1EJezxhzcyPqUlgTUv8s1; UM_distinctid=170c46a85383d5-0205e032eac378-4313f6a-144000-170c46a8539419; Hm_lvt_21be24c80829bd7a683b2c536fcf520b=1583843280; jac63367234=73157294; CNZZDATA4478442=cnzz_eid%3D1774923139-1583839423-%26ntime%3D1583844465; jac63359891=54675238; Hm_lpvt_21be24c80829bd7a683b2c536fcf520b=1583846507; SERVERID=3f9180de4977a2b2031e23b89d53baa6|1583846507|1583843279; jpckey=%E4%B8%AD%E5%AD%A6",
         'X-Forwarded-For': Virtual_ip
     }
     return header
 
 
 def Auto(headers):
-    url = 'https://www.wjx.cn/joinnew/processjq.ashx?submittype=1&curID=47758137&t=1571313212089&starttime=2019%2F10%2F17%2019%3A52%3A21&ktimes=607&rn=1784916354&hlv=1&jqnonce=2c094cad-fa76-4883-a598-200b5dcb7696&jqsign=5d7%3E3dfc*af01*3%3F%3F4*f2%3E%3F*577e2cde01%3E1&jpm=13'
+    url = 'https://www.wjx.cn/joinnew/processjq.ashx?curid=63359891&starttime=2020%2F3%2F10%2021%3A21%3A46&source=directphone&submittype=1&ktimes=216&hlv=1&rn=3065474907.54675238&jpm=9&t=1583846554570&jqnonce=0618e9a2-6146-4741-9370-c5fbc5d5a6cf&jqsign=607%3Ec%3Fg4%2B0720%2B2127%2B%3F516%2Be3%60de3b3g0e%60'
     lists = []
-    for _  in range(1, 18):
-        if _==1 or _==6:
+    for _  in range(1, 14):
+        if _==1 or _==4 or _==6:
             temp = randint(1, 2)
             s = str(_)+'$'+str(temp)
             lists.append(s)
-        elif _ == 4:
+        elif _==3 or _==5 or _==11:
+            temp = randint(1, 3)
+            s = str(_)+'$'+str(temp)
+            lists.append(s)
+        elif _==2:
+            temp = randint(1, 4)
+            s = str(_)+'$'+str(temp)
+            lists.append(s)
+        elif _ == 7:
             n = randint(1, 4)
-            ns = random.sample(range(1, 5), n)
+            ns = random.sample(range(1,5), n)
             ns.sort();
             s='|'.join(str(num) for num in ns)
             s =str(_)+'$'+s
             lists.append(s);
-        elif _ == 8:
-            n = randint(1, 5)
-            ns = random.sample(range(1, 6), n)
+        elif _==10:
+            n = randint(1, 3)
+            ns = random.sample(range(1,4), n)
             ns.sort();
             s='|'.join(str(num) for num in ns)
             s =str(_)+'$'+s
             lists.append(s);
         elif _==13:
-            n = randint(1, 4)
-            ns = random.sample(range(1, 5), n)
+            s = str(_)+'$'+"无"
+            lists.append(s)
+        else:
+            n = randint(1, 5)
+            ns = random.sample(range(1,6), n)
             ns.sort();
             s='|'.join(str(num) for num in ns)
             s =str(_)+'$'+s
             lists.append(s);
-        elif _==3 or _==14:
-            temp = randint(1, 2)
-            s = str(_)+'$'+str(temp)
-            lists.append(s)
-        else:
-            temp = randint(1, 4)
-            s = str(_)+'$'+str(temp)
-            lists.append(s)
     data = "submitdata="+"}".join(lists)
     data =data.encode('utf-8').decode("latin1")
     print(data);
