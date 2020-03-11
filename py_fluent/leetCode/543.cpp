@@ -20,7 +20,7 @@ public:
         int left=dfs(root->left);
         int right=dfs(root->right);
         int max=left+right+1;
-        if(MAX<max){
+        if(MAX< max){
             MAX=max;
         }
         return left>right?left+1:right+1;

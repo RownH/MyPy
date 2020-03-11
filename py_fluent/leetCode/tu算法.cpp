@@ -164,7 +164,7 @@ public:
 			}
 		}
 		cout << w << "->";
-	}
+	}   
 
 
 private:
