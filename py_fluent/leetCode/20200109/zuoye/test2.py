@@ -9,7 +9,7 @@ urllib3.disable_warnings()
 
 def Headers(UserAgent, Virtual_ip):
     header = {
-        'host': 'www.wjx.cn',
+        'host': 'www.ichunqiu.com',
         'User-Agent': UserAgent,
         'Content-type': 'application/x-www-form-urlencoded; ',
         'Referer': 'https://www.wjx.cn/jq/63984870.aspx',
